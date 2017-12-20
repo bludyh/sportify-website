@@ -65,45 +65,24 @@ $("document").ready(function() {
     });
     
     $("#ticket-registration-form").validate({
-        sumitHandler: submit
+        submitHandler: submit
     });
     
     function submit() {
-        
+        $("#ticketbtn").html('<img src="images/ajax-loader.gif" height="16" width="16"/> &nbsp; Processing ...');
+        var data = "form-name=ticket-registration&" + "number-tickets=" + $("#number-tickets").text() + "&" + $("#ticket-registration-form").serialize();
+        $.ajax({
+            type: "POST",
+            url: "requests_handler.php",
+            data: data,
+            success: function(response) {
+                $("#ticketbtn").html("Next");
+                alert(response);
+            }
+        });
     }
     
-    /* signup form validation */    
-//    $("#ticket-registration-form").validate({
-//        rules: {
-//            "firstname-1": { required: true },
-//            email: {
-//                required: true,
-//                email: true
-//            },
-//            password: {
-//                required: true,
-//                minlength: 8
-//            },
-//            cpassword: {
-//                required: true,
-//                equalTo: "#password"
-//            }
-//        },
-//        messages: {
-//          name: "Please enter your full name",
-//          email: "Please enter a valid email address",
-//          password: {
-//              required: "Please provide a password",
-//              minlength: "Password must contain at least 8 characters"
-//          },
-//          cpassword: {
-//              required: "Please confirm your password",
-//              equalTo: "Password not match !"
-//          }
-//        },
-//        submitHandler: submit
-//    });
-//    
+
 //    /* submit form */
 //    
 //    function submit() {

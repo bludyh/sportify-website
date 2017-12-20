@@ -84,7 +84,7 @@
                                 <div id="container"></div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-default" >Next</button>
+                                        <button type="submit" class="btn btn-default" id="ticketbtn">Next</button>
                                     </div>
                                 </div>
                             </div>

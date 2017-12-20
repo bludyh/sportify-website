@@ -6,3 +6,6 @@
  * and open the template in the editor.
  */
 
+if (filter_input(INPUT_POST, "form-name") == "ticket-registration") {
+    require("../lib/ticket_registration.php");
+}
