@@ -28,23 +28,17 @@
 		</div><!-- Container end -->
 	</header><!--/ Header end -->
 	
-	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)">
-		<!-- Subpage title start -->
-		<div class="page-banner-title">
-        	<div class="text-center">
-	        	<h2>Contact</h2>
-	        	<ul class="breadcrumb">
-	            <li>Home</li>
-	            <li><a href="#"> Contact Us</a></li>
-          	</ul>
-         </div>
-      </div><!-- Subpage title end -->
-	</div><!-- Banner end -->
+	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)"></div><!-- Banner end -->
 
 	<section id="main-container" class="main-container">
 		<div class="container">
-
-			<div id="map" class="map" style="margin-top: 100px;"></div>
+                    <div style="margin-top: 100px" class="row text-center">
+                        <span class="icon-wrap"><i  class="fa fa-phone"></i></span>
+                        <h2 class="section-title">Contact Us</h2>
+                        <p class="section-sub-title">Need more information?</p>
+                    </div><!--/ Title row end -->
+                    
+			<div id="map" class="map"></div>
 
 			<div class="gap-60"></div>
 

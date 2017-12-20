@@ -15,39 +15,25 @@
 			<div class="row">
 				<div class="navbar-header">
 					<div class="logo">
-	                <a href="index-2.php">
+	                <a href="index.php">
 	                	<img src="images/logo.png" alt="">
 	                </a>
          		</div><!-- logo end -->
 				</div><!-- Navbar header end -->
 
-	    			</nav><!--/ Collapse end -->
-
-				</div><!-- Site nav inner end -->
-
+                            <?php include("../lib/templates/navbar.inc.html"); ?>
+					
 			</div><!-- Row end -->
 		</div><!-- Container end -->
 	</header><!--/ Header end -->
 
-	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner2.jpg)">
-		<!-- Subpage title start -->
-		<div class="page-banner-title">
-        	<div class="text-center">
-	        	<h2>Login</h2>
-	        	<ul class="breadcrumb">
-	            <li>Home</li>
-	            <li>About</li>
-	            <li><a href="#"> Tickets</a></li>
-          	</ul>
-         </div>
-      </div><!-- Subpage title end -->
-	</div><!-- Page Banner end -->
+	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)"></div><!-- Page Banner end -->
 
 	<section id="main-container" class="main-container">
 		<div class="container">
-			<div class="row text-center">
-				<span class="icon-wrap"><i class="fa fa-ticket"></i></span>
-				<h2 class="section-title">Login or Register</h2>
+			<div style="margin-top: 100px" class="row text-center">
+				<span class="icon-wrap"><i  class="fa fa-sign-in"></i></span>
+				<h2 class="section-title">Login</h2>
 				<p class="section-sub-title">Be a part of this great event</p>
 			</div><!--/ Title row end -->
 

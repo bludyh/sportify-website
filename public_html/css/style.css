@@ -1,37 +1,4 @@
-/*
-	Template Name: Eventime -  Conference &amp; Event HTML Template
-	Author: Themefunction
-	Author URI: https://themeforest.net/user/themefunction
-	Description: Eventime -  Conference &amp; Event HTML Template
-	Version: 1.0
-*/
 
-/* Table of Content
-==================================================
-1.    Typography
-2.    Global Styles
-3.    Header area
-4.		Banner area
-5.    Slider
-6.		Countdown
-7.    Features
-8.    Facts
-9.		Schedule
-10.	Speakers
-11.	Sponsors
-12.	Pricing
-13.   Content area
-14.   Latest blog
-15.	Venue
-16.   Footer
-17.   Sub Pages
-18.   Contact Us
-19.   News Listing
-20.   News Single
-21.   Sidebar
-22.   Error page
-	
-*/
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i);
 
@@ -418,7 +385,7 @@ img.pull-right {
 
 .form-control:focus{
 	 box-shadow: none;
-	 border: 1px solid #ea531c;
+	 border: 1px solid grey;
 }
 
 hr {
@@ -3440,6 +3407,9 @@ label{
 	margin-bottom: -180px;
 }
 
-
-
-
+.error {
+    color: red;
+}
+.valid {
+    color: green;
+}

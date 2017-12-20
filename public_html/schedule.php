@@ -16,7 +16,7 @@
 			<div class="row">
 				<div class="navbar-header">
 					<div class="logo">
-	                <a href="index-2.php">
+	                <a href="index.php">
 	                	<img src="images/logo.png" alt="">
 	                </a>
          		</div><!-- logo end -->
@@ -28,26 +28,14 @@
 		</div><!-- Container end -->
 	</header><!--/ Header end -->
 
-	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)">
-		<!-- Subpage title start -->
-		<div class="page-banner-title">
-        	<div class="text-center">
-	        	<h2>Schedule</h2>
-	        	<ul class="breadcrumb">
-	            <li>Home</li>
-	            <li>Schedule</li>
-	            <li><a href="#"> Schedule Tab Style</a></li>
-          	</ul>
-         </div>
-      </div><!-- Subpage title end -->
-	</div><!-- Page Banner end -->
+	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)"></div><!-- Page Banner end -->
 
 	<section id="main-container" class="main-container">
 		<div class="container">
-			<div class="row text-center">
+			<div style="margin-top: 100px" class="row text-center">
 				<span class="icon-wrap"><i class="fa fa-calendar"></i></span>
 				<h2 class="section-title">Schedule</h2>
-				<p class="section-sub-title">Full-day Events with Awesome Speakers</p>
+				<p class="section-sub-title">Full-day events with awesome activities</p>
 			</div><!--/ Title row end -->
 
 

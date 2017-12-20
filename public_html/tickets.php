@@ -15,169 +15,82 @@
 			<div class="row">
 				<div class="navbar-header">
 					<div class="logo">
-	                <a href="index-2.php">
+	                <a href="index.php">
 	                	<img src="images/logo.png" alt="">
 	                </a>
          		</div><!-- logo end -->
-				</div><!-- Navbar header end -->
-<!--
-				<div class="site-nav-inner">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				      <span class="sr-only">Toggle navigation</span>
-				      <span class="icon-bar"></span>
-				      <span class="icon-bar"></span>
-				      <span class="icon-bar"></span>
-	    			</button>
-
-	    			<nav class="collapse navbar-collapse navbar-responsive-collapse pull-right">
-
-	    				<ul class="nav navbar-nav">
-							<li class="dropdown">
-		                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
-								<ul class="dropdown-menu" role="menu">
-                           
-		                  </ul>
-		               </li>
-
-		               <li class="dropdown">
-		                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Speakers <i class="fa fa-angle-down"></i></a>
-								<ul class="dropdown-menu" role="menu">
-                           
-		                  </ul>
-		               </li>
-
-		               <li class="dropdown">
-		                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Schedule <i class="fa fa-angle-down"></i></a>
-								<ul class="dropdown-menu" role="menu">
-                           
-		                  </ul>
-		               </li>
-
-		               <li><a href="venue.php">Venue</a></li>
-		                
-		               <li class="dropdown active">
-		                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <i class="fa fa-angle-down"></i></a>
-								<ul class="dropdown-menu" role="menu">
-                           
-                         		
-                         	</li>
-		                  </ul>
-		               </li>
-
-		               <li class="dropdown">
-		                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <i class="fa fa-angle-down"></i></a>
-								<ul class="dropdown-menu" role="menu">
-                           
-		                  </ul>
-		               </li>
-
-							<li><a href="contact.php">Contact</a></li>
-
-		               <li class="header-ticket">
-		               	<a class="ticket-btn" href="tickets.php">Tickets</a>
-		               </li>
-
-		            </ul><!--/ Nav ul end -->
--->
-	    			</nav><!--/ Collapse end -->
-
-				</div><!-- Site nav inner end -->
+				
+				</div>
+			
+                            <?php include("../lib/templates/navbar.inc.html"); ?>
 
 			</div><!-- Row end -->
 		</div><!-- Container end -->
 	</header><!--/ Header end -->
 
-	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner2.jpg)">
-		<!-- Subpage title start -->
-		<div class="page-banner-title">
-        	<div class="text-center">
-	        	<h2>Tickets</h2>
-	        	<ul class="breadcrumb">
-	            <li>Home</li>
-	            <li>About</li>
-	            <li><a href="#"> Tickets</a></li>
-          	</ul>
-         </div>
-      </div><!-- Subpage title end -->
-	</div><!-- Page Banner end -->
+	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)"></div><!-- Page Banner end -->
 
 	<section id="main-container" class="main-container">
 		<div class="container">
-			<div class="row text-center">
-				<span class="icon-wrap"><i class="fa fa-ticket"></i></span>
+			<div style="margin-top: 100px" class="row text-center">
+				<span class="icon-wrap"><i  class="fa fa-ticket"></i></span>
 				<h2 class="section-title">Tickets</h2>
 				<p class="section-sub-title">Be a part of this great event</p>
 			</div><!--/ Title row end -->
+                        
+                        <form id="ticket-registration-form" class="form-horizontal" method="post">
+                            <div class='form-group'>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Number Of Tickets:</label>
+                                    <div class="col-sm-10">
+                                        <button type="button" class="btn btn-default" id="addbtn" onclick="addTickets()"><span class="glyphicon glyphicon-plus"></span></button>
+                                        <p style="margin-left: 10px; margin-right: 10px; display: inline;" id="number-tickets"></p>
+                                        <button type="button" class="btn btn-default" id="addbtn" onclick="removeTickets()"><span class="glyphicon glyphicon-minus"></span></button>
+                                    </div>
+                                </div>
+                                <div id="ticket-info-1" style="border-top: 1px solid">
+                                    <h2 style="margin-bottom: 30px">Ticket 1</h2>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="firstname-1">First Name:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="fname form-control" id="firstname-1" name="firstname-1" style="text-transform: capitalize">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="lastname-1">Last Name:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="lname form-control" id="lastname-1" name="lastname-1" style="text-transform: capitalize">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="birthday-1">Date Of Birth:</label>
+                                        <div class="col-sm-3">
+                                            <input type="date" class="bday form-control" id="birthday-1" name="birthday-1">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="email-1">Email Address:</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="email form-control" id="email-1" name="email-1">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="email-confirm-1">Confirm Email Address:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="cemail form-control" id="email-confirm-1" name="email-confirm-1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="container"></div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-default" >Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
 
-
-			<div class="row">
-				<div class="col-md-4">
-				   <div class="ts-pricing-box price-green">
-				   	<div class="ts-pricing-header">
-				   		<h2 class="ts-pricing-name">Early Bird</h2> 
-				   		<h2 class="ts-pricing-price">
-				   			<span class="currency">$</span><strong>49</strong><small>/1 Person</small>
-				   		</h2>
-				   	</div><!-- Pricing header -->
-				      <div class="ts-pricing-features">
-				         <ul class="list-unstyled">
-				            <li>1 Festival day</li>
-				            <li>1 Performance</li>
-				            <li>Free Cofee/Lunch</li>
-				            <li>Custom Pass</li>
-				         </ul>
-				      </div><!-- Features end -->
-				      <div class="plan-action">
-				         <a href="#" class="btn btn-primary">Buy Now</a>                        
-				      </div>
-				   </div><!-- Plan 1 end -->
-				</div><!-- Col end -->
-
-				<div class="col-md-4">
-				   <div class="ts-pricing-box pricing-featured">
-				   	<div class="ts-pricing-header">
-				   		<h2 class="ts-pricing-name">Regular</h2> 
-				   		<h2 class="ts-pricing-price">
-				   			<span class="currency">$</span><strong>99</strong><small>/1 Person</small>
-				   		</h2>
-				   	</div><!-- Pricing header -->
-				      <div class="ts-pricing-features">
-				         <ul class="list-unstyled">
-				            <li>1 Festival day</li>
-				            <li>1 Performance</li>
-				            <li>Free Cofee/Lunch</li>
-				            <li>Custom Pass</li>
-				         </ul>
-				      </div><!-- Features end -->
-				      <div class="plan-action">
-				         <a href="login/index.php" class="btn btn-primary">Buy Now</a>                        
-				      </div>
-				   </div><!-- Plan 2 end -->
-				</div><!-- Col end -->
-
-				<div class="col-md-4">
-				   <div class="ts-pricing-box">
-				   	<div class="ts-pricing-header">
-				   		<h2 class="ts-pricing-name">Last Chance</h2> 
-				   		<h2 class="ts-pricing-price">
-				   			<span class="currency">$</span><strong>179</strong><small>/1 person</small>
-				   		</h2>
-				   	</div><!-- Pricing header -->
-				      <div class="ts-pricing-features">
-				         <ul class="list-unstyled">
-				            <li>1 Festival day</li>
-				            <li>1 Performance</li>
-				            <li>Free Cofee/Lunch</li>
-				            <li>Custom Pass</li>
-				         </ul>
-				      </div><!-- Features end -->
-				      <div class="plan-action">
-				         <a href="#" class="btn btn-primary">Buy Now</a>                        
-				      </div>
-				   </div><!-- Plan 3 end -->
-				</div><!-- Col end -->
-
-			</div><!--/ Content row end -->
+			
 		</div><!-- Conatiner end -->
 	</section><!-- Main container end -->
 
@@ -200,8 +113,11 @@
 	<script type="text/javascript" src="js/jquery.colorbox.js"></script>
 	<!-- Template custom -->
 	<script type="text/javascript" src="js/custom.js"></script>
-
+        <!-- Ticket script -->
+        <script type="text/javascript" src="js/ticket.js"></script>
 	
+        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/ajax-registration.js"></script>
 	</div><!-- Body inner end -->
 </body>
 

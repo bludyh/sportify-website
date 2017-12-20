@@ -28,23 +28,11 @@
 		</div><!-- Container end -->
 	</header><!--/ Header end -->
 
-	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)">
-		<!-- Subpage title start -->
-		<div class="page-banner-title">
-        	<div class="text-center">
-	        	<h2>Faq</h2>
-	        	<ul class="breadcrumb">
-	            <li>Home</li>
-	            <li>About</li>
-	            <li><a href="#"> Faq</a></li>
-          	</ul>
-         </div>
-      </div><!-- Subpage title end -->
-	</div><!-- Page Banner end -->
+	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)"></div><!-- Page Banner end -->
 
 	<section id="main-container" class="main-container">
 		<div class="container">
-			<div class="row">
+			<div style="margin-top: 100px" class="row">
 				<div class="col-md-8">
 					<h3 class="title-classic">General Information</h3>
 

@@ -34,11 +34,11 @@
 					
 				</div>
 			</div><!-- Container end -->
-			<img src="images/main-banner/banner-bottom-img.png" alt="img" class="banner-bottom-img" />
+			
 		</div><!-- Banner item end -->
 	</section><!-- Section banner end -->
 
-	<section class="countdown-area">
+        <section id="countdown" class="countdown-area">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -65,7 +65,7 @@
 		</div><!-- Container end -->
 	</section><!-- Countdown end -->
 
-	<section id="ts-intro" class="ts-intro">
+        <section id="ts-intro" class="ts-intro">
 		<div class="container">
 
 			<div class="row">
@@ -76,7 +76,7 @@
 						<div class="gap-20"></div>
 						<p>
 							
-							<a href="login/index.php" class="btn btn-primary">Buy Tickets <i class="fa fa-long-arrow-right"></i></a>
+                                                    <a href="tickets.php" class="btn btn-primary">Buy Tickets <i class="fa fa-long-arrow-right"></i></a>
 						</p>
 					</div><!-- Intro content -->
 				</div><!-- Col end -->
@@ -609,7 +609,7 @@
 
 			<div class="row">
 				<div class="general-btn text-center">
-					<a class="btn btn-primary" href="login/index.php">Buy your ticket</a>
+					<a class="btn btn-primary" href="tickets.php">Buy your ticket</a>
 				</div>
 			</div><!--/ Content row 3 end -->
 
@@ -628,7 +628,7 @@
 			<div class="row">
 				
 
-				<div class="col-md-4">
+                            <div class="col-md-offset-4 col-md-4">
 				   <div class="ts-pricing-box pricing-featured">
 				   	<div class="ts-pricing-header">
 				   		<h2 class="ts-pricing-name">Regular</h2> 
@@ -644,8 +644,8 @@
 				            <li>Bracelet</li>
 				         </ul>
 				      </div><!-- Features end -->
-				      <div class="plan-action">
-				         <a href="#" class="btn btn-primary">Buy Now</a>                        
+				      <div class="plan-action text-center">
+                                          <a href="tickets.php" class="btn btn-primary">Buy Now</a>                        
 				      </div>
 				   </div><!-- Plan 2 end -->
 				</div><!-- Col end -->

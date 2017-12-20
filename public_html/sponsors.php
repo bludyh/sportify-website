@@ -27,28 +27,16 @@
 		</div><!-- Container end -->
 	</header><!--/ Header end -->
 
-	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner4.jpg)">
-		<!-- Subpage title start -->
-		<div class="page-banner-title">
-        	<div class="text-center">
-	        	<h2>Sponsors &amp; Partners</h2>
-	        	<ul class="breadcrumb">
-	            <li>Home</li>
-	            <li>About</li>
-	            <li><a href="#"> Sponsors</a></li>
-          	</ul>
-         </div>
-      </div><!-- Subpage title end -->
-	</div><!-- Page Banner end -->
+	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner4.jpg)"></div><!-- Page Banner end -->
 
 	<section id="main-container" class="main-container">
 		<div class="container">
-			<div class="row text-center">
-				<span class="icon-wrap"><i class="fa fa-handshake-o"></i></span>
+			<div style="margin-top: 100px" class="row text-center">
+                            <span class="icon-wrap"><i class="fa fa-handshake-o"></i></span>
 				<h2 class="section-title">Sponsors &amp; Partners</h2>
 				<p class="section-sub-title">They helping us make this event possible.</p>
 			</div><!--/ Title row end -->
-				
+                        
 			<div class="row text-center">
 				<h3 class="sponsor-title">Gold Sponsors</h3>
 

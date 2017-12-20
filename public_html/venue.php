@@ -27,15 +27,13 @@
 		</div><!-- Container end -->
 	</header><!--/ Header end -->
 
-	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)">
-		
-	</div><!-- Page Banner end -->
+	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)"></div><!-- Page Banner end -->
 
 	<section id="main-container" class="main-container">
 		<div class="container">
-			<div class="row text-center">
-				
-				<h2 style="margin-top: 100px;" class="section-title">Festival Location</h2>
+			<div style="margin-top: 100px" class="row text-center">
+				<span class="icon-wrap"><i class="fa fa-map"></i></span>
+				<h2 class="section-title">Festival Location</h2>
 				<p class="section-sub-title">A short guide to Sportify venue and places to stay</p>
 			</div><!--/ Title row end -->
 
