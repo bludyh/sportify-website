@@ -467,7 +467,6 @@ cite {
 	color: #ea531c;
 }
 
-
 .btn-primary:hover,
 .btn-dark:hover,
 .btn-white.btn-primary:hover{
@@ -3339,12 +3338,6 @@ label{
 }
 
 
-
-
-
-
-
-
 /* Login */
 
 .tg-formarea2{
@@ -3412,4 +3405,48 @@ label{
 }
 .valid {
     color: green;
+}
+
+/* Ticket map and marker */
+#map {
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    z-index: 10;
+}
+.checkbox-marker {
+    display: none;
+}
+.marker {
+    width: 64px;
+    height: 64px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.marker:hover {
+    transform: scale(1.25, 1.25);
+}
+
+/* Ticket nav tabs */
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+}
+
+.nav-tabs {
+    text-align:center;
+}
+
+.nav.nav-tabs > li.disabled { 
+    pointer-events: none;
+}
+
+.nav-tabs>li>a, .nav-tabs>li>a:hover, .nav-tabs>li>a:focus {
+    color:#7c7c7c;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color:#ea531c;
 }

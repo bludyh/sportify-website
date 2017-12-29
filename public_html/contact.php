@@ -87,7 +87,7 @@
 					<div class="sidebar sidebar-left">
 						<div class="widget contact-info">
 							<div class="contact-info-box">
-								<i class="fa fa-map">&nbsp;</i>
+								<i class="fa fa-building">&nbsp;</i>
 								<div class="contact-info-box-content">
 									<h4>Office</h4>
 									<p>Sportify HQ, Philips Stadion Eindhoven 5611BM</p>
@@ -98,7 +98,7 @@
 								<i class="fa fa-envelope">&nbsp;</i>
 								<div class="contact-info-box-content">
 									<h4>Email</h4>
-									<p>team@sportify.nl</p>
+									<p>contact@sportify.nl</p>
 								</div>
 							</div>
 
@@ -106,7 +106,7 @@
 								<i class="fa fa-phone-square">&nbsp;</i>
 								<div class="contact-info-box-content">
 									<h4>Phone</h4>
-									<p>+31 0685556102</p>
+									<p>+31 (0)68 555 6102</p>
 								</div>
 							</div>
 

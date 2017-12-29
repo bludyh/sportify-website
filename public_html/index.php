@@ -316,7 +316,7 @@
 
 					      </div><!-- Tab pane 1 end -->
 
-				        <div class="tab-pane animated fadeInRight" id="tab_two">
+				        <div class="tab-pane animated fadeInLeft" id="tab_two">
 				      		<h2 class="schedule-date">Friday, 18th August</h2>
 
 				        		<div class="schedule-listing">
@@ -390,7 +390,80 @@
 				        		</div><!-- Slot listing 5 end -->
 
 					      </div><!-- Tab pane 2 end -->
-						  
+						<div class="tab-pane animated fadeInRight" id="tab_three">
+				      		<h2 class="schedule-date">Saturday, 19th August</h2>
+
+				        		<div class="schedule-listing">
+				        			<span class="schedule-slot-time">09:30 - 11:15AM</span>
+				        			<div class="schedule-slot-info">
+				        				<a href="#">
+				        					<img class="schedule-slot-speakers" src="images/speakers/football.png" alt="" />
+				        				</a>
+				        				<div class="schedule-slot-info-content">
+				        					<h3 class="schedule-slot-title">First Round - Football Tournament</h3>
+				        					<h4 class="schedule-slot-speaker-name">Area 12</h4>
+				        					<p class="schedule-slot-desc">Exiting game that will facilitate 12 persons. PLease signup for the tournament before hand.</p>
+				        				</div><!--Info content end -->
+				        			</div><!-- Slot info end -->
+				        		</div><!-- Slot listing 2 end -->
+
+				        		<div class="schedule-listing">
+				        			<span class="schedule-slot-time">09:30 - 11:15AM</span>
+				        			<div class="schedule-slot-info">
+				        				<a href="#">
+				        					<img class="schedule-slot-speakers" src="images/speakers/basketball.png" alt="" />
+				        				</a>
+				        				<div class="schedule-slot-info-content">
+				        					<h3 class="schedule-slot-title">First Round - Basketball Tournament</h3>
+				        					<h4 class="schedule-slot-speaker-name">Area 15</h4>
+				        					<p class="schedule-slot-desc">Exiting game that will facilitate 12 persons. PLease signup for the tournament before hand.</p>
+				        				</div><!--Info content end -->
+				        			</div><!-- Slot info end -->
+				        		</div><!-- Slot listing 2 end -->
+
+				        		<div class="schedule-listing">
+				        			<span class="schedule-slot-time">11:15 - 13:15PM</span>
+				        			<div class="schedule-slot-info">
+				        				<a href="#">
+				        					<img class="schedule-slot-speakers" src="images/speakers/tennis.png" alt="" />
+				        				</a>
+				        				<div class="schedule-slot-info-content">
+				        					<h3 class="schedule-slot-title">First Round - Tennis Tournament</h3>
+				        					<h4 class="schedule-slot-speaker-name">Area 21</h4>
+				        					<p class="schedule-slot-desc">Exiting game that will facilitate 12 persons. PLease signup for the tournament before hand.....</p>
+				        				</div><!--Info content end -->
+				        			</div><!-- Slot info end -->
+				        		</div><!-- Slot listing 3 end -->
+
+				        		<div class="schedule-listing">
+				        			<span class="schedule-slot-time">09:30 - 11:15AM</span>
+				        			<div class="schedule-slot-info">
+				        				<a href="#">
+				        					<img class="schedule-slot-speakers" src="images/speakers/volleyball.png" alt="" />
+				        				</a>
+				        				<div class="schedule-slot-info-content">
+				        					<h3 class="schedule-slot-title">First Round - Volleyball Tournament</h3>
+				        					<h4 class="schedule-slot-speaker-name">Area 32</h4>
+				        					<p class="schedule-slot-desc">Exiting game that will facilitate 12 persons. PLease signup for the tournament before hand.</p>
+				        				</div><!--Info content end -->
+				        			</div><!-- Slot info end -->
+				        		</div><!-- Slot listing 2 end -->
+
+				        		<div class="schedule-listing listing-last">
+				        			<span class="schedule-slot-time">14:35 - 16:00PM</span>
+				        			<div class="schedule-slot-info">
+				        				<a href="#">
+				        					<img class="schedule-slot-speakers" src="images/speakers/speaker3.jpg" alt="" />
+				        				</a>
+				        				<div class="schedule-slot-info-content">
+				        					<h3 class="schedule-slot-title">Country & Soul Singer - Breda</h3>
+				        					<h4 class="schedule-slot-speaker-name">Agaton Johnsson</h4>
+				        					<p class="schedule-slot-desc">Exiting game that will facilitate 12 persons. PLease signup for the tournament before hand.</p>
+				        				</div><!--Info content end -->
+				        			</div><!-- Slot info end -->
+				        		</div><!-- Slot listing 5 end -->
+
+					      </div><!-- Tab pane 2 end -->  
 						  
 						</div><!-- tab content -->
 					</div><!-- Schedule tab end -->
@@ -633,7 +706,7 @@
 				   	<div class="ts-pricing-header">
 				   		<h2 class="ts-pricing-name">Regular</h2> 
 				   		<h2 class="ts-pricing-price">
-				   			<span class="currency">$</span><strong>99</strong><small>/1 Person</small>
+				   			<span class="currency">€</span><strong>55</strong><small>/1 Person</small>
 				   		</h2>
 				   	</div><!-- Pricing header -->
 				      <div class="ts-pricing-features">
@@ -711,7 +784,7 @@
 	================================================== -->
 
 	<!-- initialize jQuery Library -->
-	<script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
 	<!-- Bootstrap jQuery -->
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<!-- Counter -->
@@ -735,7 +808,7 @@
 
 		$(".countdown").jCounter({
 		  	date: '17 August 2017 12:00:00',
-		  	fallback: function() { console.log("count finished!") }
+		  	fallback: function() { console.log("count finished!"); }
 		});
 
 		/* Google Map */
@@ -752,7 +825,7 @@
 	         .marker([
 		        {position:[-37.817274,144.955709]},
 		        {icon: "http://maps.google.com/mapfiles/marker_grey.png"}
-		      ])
+		      ]);
 	     });
 
 	</script>
