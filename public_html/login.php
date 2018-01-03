@@ -1,3 +1,12 @@
+<?php 
+    require("../lib/authorization.php");
+    
+    if (IsRememberMeEnabled() || IsLoggedIn()) {
+        header("Location: dashboard.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

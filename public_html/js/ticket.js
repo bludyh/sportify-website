@@ -17,7 +17,7 @@ function addTickets(){
             totalPrice += 55;
         }
         
-        var html = "<div id='ticket-info-" + noTickets + "' style='border-top: 1px solid'>\n\
+        var html = "<div id='ticket-info-" + noTickets + "'>\n\
             <h3 style='margin-bottom: 20px'>Ticket " + noTickets + "</h3>\n\
             <div class='form-group'>\n\
                 <label class='control-label col-sm-2' for='firstname-" + noTickets + "'>First Name:</label>\n\

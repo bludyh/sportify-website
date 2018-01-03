@@ -4,7 +4,7 @@
 <?php
     include("../lib/templates/head.inc.html");
     spl_autoload_register(function ($class_name) {
-        $file = dirname($_SERVER["DOCUMENT_ROOT"]) . "/lib/classes/" . $class_name . ".php";
+        $file = dirname(filter_input(INPUT_SERVER, "DOCUMENT_ROOT")) . "/lib/classes/" . $class_name . ".php";
         if (file_exists($file)) {
             require_once($file);
         }
@@ -39,7 +39,7 @@
 	<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/banner/banner1.jpg)"></div><!-- Page Banner end -->
 
 	<section id="main-container" class="main-container">
-		<div class="container">
+            <div id="dunno" class="container">
 			<div style="margin-top: 100px" class="row text-center">
 				<span class="icon-wrap"><i  class="fa fa-ticket"></i></span>
 				<h2 class="section-title">Tickets</h2>
@@ -70,14 +70,14 @@
                                     <div id="step-1" class="tab-pane fade in active">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <h3 style="margin: 0;">1. Fill in your details</h3>
+                                                <h3 style="margin-top: 0px;">1. Fill in your ticket details</h3>
                                             </div>
                                             <div class="col-sm-8" style="text-align: right;">
                                                 <label style="margin-right: 10px;">Number Of Tickets:</label>
                                                 <button type="button" class="btn btn-default" id="addbtn"><span class="glyphicon glyphicon-plus valid"></span></button>
                                                 <p style="margin-left: 10px; margin-right: 10px; display: inline;" id="number-tickets"></p>
                                                 <button type="button" class="btn btn-default" id="removebtn"><span class="glyphicon glyphicon-minus valid"></span></button>
-                                                <strong style="margin-left: 10px; display: inline;">x €55.00/ticket</strong>
+                                                <p style="margin-left: 10px; display: inline;">x €55.00/ticket</p>
                                             </div>
                                         </div>
                                         <div id="ticket-info-1">
@@ -126,12 +126,12 @@
                                     <!-- Step 2 -->
                                     <div id="step-2" class="tab-pane fade">
                                         <div style="margin-bottom: 20px;">
-                                            <h3 >2. Choose your camping spot</h3>
+                                            <h3>2. Choose your camping spot</h3>
 
                                             <p>Here you can choose your own camping spot to fully enjoy our wonderful 3-day event. 
                                             Each camping spot is available for maximum 6 people.</p>
                                             <p>You can only reserve one camping spot per order.</p>
-                                            <strong>Price: €10.00 (reservation cost) + no. of people x €20.00/person</strong>
+                                            <strong>Price: €10.00 (reservation fee) + no. of people x €20.00/person</strong>
 
                                             <div id="map">
                                                 <div><img src="images/map.png" width="100%;"/></div>
@@ -172,8 +172,8 @@
                                                             }
 
                                                             $popover = "<img src='images/" . $img . "' style='width: 100%'/>"
-                                                                    . "<p><strong>Spot: No." . $spot[$i]["spot_id"] . "</strong></p>"
-                                                                    . "<p><strong>Location: " . $location . "</strong></p>"
+                                                                    . "<p><strong>Spot: </strong>No." . $spot[$i]["spot_id"] . "</p>"
+                                                                    . "<p><strong>Location: </strong>" . $location . "</p>"
                                                                     . "<p><strong>Description: </strong>" . $desciption . "</p>";
 
                                                             $left = json_decode(($spot[$i]["map_coords"]))[0];
@@ -197,16 +197,72 @@
                                     <!-- Step 3 -->
                                     <div id="step-3" class="tab-pane fade">
                                         <div style="margin-bottom: 20px;">
-                                            <h3>3. Confirm your order</h3>
-                                        </div>
-    <!--                                    <div style="border-top: 1px solid">
-                                            <div class="form-group">
-                                                <div class="col-sm-offset-6 col-sm-6" style="margin-top: 20px; text-align: right">
-                                                    <h3 style="margin-right: 20px; display: inline;" id="total-price"></h3>
-                                                    <button type="submit" class="btn btn-primary" id="ticketbtn">Next</button>
+                                            <h3>3. Review and place your order</h3>
+                                            <h3>We're almost done!</h3>
+                                            <p>Please review your order carefully before proceeding to payment.</p>
+                                            <p><strong>Important: </strong>After you click on <strong>ORDER NOW</strong>, you will not be able to withdraw your order. 
+                                            We will then send your ticket to the email address you have provided. 
+                                            Be sure to use a valid email address that you have access to.
+                                            </p>
+                                            
+                                            <div style="padding: 30px 50px 0px 50px">
+                                                <p><strong style="margin-right: 20px">Ticket Summary</strong><a style="cursor: pointer;" id="edit-btn">Edit</a></p>
+                                                <div class="table-responsive">        
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Ticket#</th>
+                                                                <th>First Name</th>
+                                                                <th>Last Name</th>
+                                                                <th>Date Of Birth</th>
+                                                                <th>Email Address</th>
+                                                                <th>Phone</th>
+                                                                <th>Price</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="table-body">
+
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
-                                        </div>-->
+                                            
+                                            <div style="padding: 20px 50px 20px 50px">
+                                                <p><strong style="margin-right: 20px">Camping Spot Overview</strong><a style="cursor: pointer;" id="change-btn">Change</a></p>
+                                                <div class="row">
+                                                    <div id="overview-img" class="col-sm-4">
+
+                                                    </div>
+                                                    <div id="overview-text" class="col-sm-6">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <h3>Choose a payment method</h3>
+                                            <div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="radio" checked="checked"> <strong>iDEAL</strong>
+                                                        <img src="images/ideal.gif" style="display: block; height: 100px;" />
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="radio"> <strong>PayPal</strong>
+                                                        <img src="images/paypal.png" style="display: block; height: 100px;" />
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="radio"> <strong>Credit Card</strong>
+                                                        <img src="images/credit-cards.png" style="display: block; height: 100px;" />
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <p>By placing your order, you agree to our <a href="#">terms and conditions</a>.</p>
+                                        </div>
+
                                     </div>
                                     <!-- End of Step 3 -->
 
@@ -249,7 +305,6 @@
         <!-- Ticket script -->
         <script type="text/javascript" src="js/ticket.js"></script>
         <script type="text/javascript" src="js/registration.js"></script>
-
         
 	</div><!-- Body inner end -->
 </body>

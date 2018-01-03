@@ -50,15 +50,10 @@ $("document").ready(function() {
                         icon = "check";
                         message = "Your password has been reset successfully! Click <a href='login.php'>here</a> to login";
                     }
-                    else if ($.trim(response) === "expired") {
-                        alert = "danger";
-                        icon = "times";
-                        message = "Password reset link has expired! No changes were made to your account";
-                    }
                     else {
                         alert = "danger";
                         icon = "times";
-                        message = "Something went wrong! Please try again later";
+                        message = response;
                     }
                     $("#reset-password-form").delay(1000).hide("slide", {direction: "left"}, 1000, function() {
                         $("#popup").hide().html("<div class='alert alert-" + alert + "' style='text-align: center'><i class='fa fa-" + icon + "' aria-hidden='true'></i> " + message + "</div>").fadeIn(1000, function() {

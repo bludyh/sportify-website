@@ -43,12 +43,10 @@ $("document").ready(function() {
                 beforeSend: function(){
                     $("#popup-1").fadeOut();
                     $("#login-btn").html("<img src='images/ajax-loader.gif' height='16' width='16'/> &nbsp; Logging In ...");
-                    },
+                },
                 success : function(response){
                     if ($.trim(response) === "ok"){
-                        $("#login-btn").html("Login");
-                        alert("ok");
-                        //setTimeout("window.location.href = 'user-profile.php'; ",4000);
+                        setTimeout("window.location.replace('dashboard.php');", 2000);
                     } else {
                         $("#email").val("");
                         $("#password").val("");

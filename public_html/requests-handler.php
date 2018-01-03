@@ -5,8 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-if (!empty($_POST)) {
-    if (isset($_POST["emailToCheck"])) {
+if (!empty(filter_input_array(INPUT_POST))) {
+    if (filter_input(INPUT_POST, "emailToCheck") !== NULL) {
         require("../lib/check-email.php");
     }
 
@@ -22,9 +22,13 @@ if (!empty($_POST)) {
         require("../lib/forgot-password.php");
     }
     if (filter_input(INPUT_POST, "form-name") == "login") {
-        require("../lib/login.php");
+        require("../lib/authentication.php");
+    }
+    if (filter_input(INPUT_POST, "form-name") == "logout") {
+        require("../lib/logout.php");
     }
 }
 else {
     header("Location: index.php");
+    exit();
 }

@@ -7,10 +7,11 @@
  */
 
 spl_autoload_register(function ($class_name) {
-    $file = dirname($_SERVER["DOCUMENT_ROOT"]) . "/lib/classes/" . $class_name . ".php";
+    $file = dirname(filter_input(INPUT_SERVER, "DOCUMENT_ROOT")) . "/lib/classes/" . $class_name . ".php";
     if (file_exists($file)) {
         require_once($file);
     }
 });
 
-Database::ExecuteNonQuery("DELETE FROM password_recovery WHERE expire_date < :now", array(":now" => time()));
+Database::ExecuteNonQuery("DELETE FROM password_recovery WHERE expire_date < :now", [":now" => time()]);
+Database::ExecuteNonQuery("DELETE FROM remember_me WHERE expire_date < :now", [":now" => time()]);

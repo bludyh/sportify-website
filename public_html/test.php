@@ -7,11 +7,15 @@
  * and open the template in the editor.
  */
     spl_autoload_register(function ($class_name) {
-        $file = dirname($_SERVER["DOCUMENT_ROOT"]) . "/lib/classes/" . $class_name . ".php";
+        $file = dirname(filter_input(INPUT_SERVER, "DOCUMENT_ROOT")) . "/lib/classes/" . $class_name . ".php";
         if (file_exists($file)) {
             require_once($file);
         }
     });
+
+for ($i = 0; $i < 50; $i++) {
+    Database::ExecuteNonQuery("INSERT INTO ticket (ticket_id) VALUES (:ticket_id)", [":ticket_id" => strtoupper(uniqid() . bin2hex(random_bytes(4)))]);
+}    
 
 //Insert map coordinates into database
 //if (isset($_POST)) {

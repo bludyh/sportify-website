@@ -20,7 +20,7 @@ class Database {
     public static function Initialize() {
         if (self::$initialized) { return; }
         
-        self::$dbInfo = require(dirname($_SERVER["DOCUMENT_ROOT"]) . "/lib/config.php");
+        self::$dbInfo = require(dirname(filter_input(INPUT_SERVER, "DOCUMENT_ROOT")) . "/lib/config.php");
         self::$initialized = true;
     }
     

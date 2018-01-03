@@ -7,7 +7,7 @@
  */
 
 spl_autoload_register(function ($class_name) {
-    $file = dirname($_SERVER["DOCUMENT_ROOT"]) . "/lib/classes/" . $class_name . ".php";
+    $file = dirname(filter_input(INPUT_SERVER, "DOCUMENT_ROOT")) . "/lib/classes/" . $class_name . ".php";
     if (file_exists($file)) {
         require_once($file);
     }
@@ -54,11 +54,11 @@ if (filter_input(INPUT_POST, "form-name") == "reset-password") {
             echo("ok");
         }
         else {
-            echo("expired");
+            echo("Password reset link has expired! No changes were made to your account");
         }
     }
     else {
-        echo("error");
+        echo("Something went wrong! Please try again later");
     }
     
 }

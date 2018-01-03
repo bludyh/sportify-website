@@ -1,3 +1,5 @@
+/* global noTickets */
+
 function addValidationRules() {
     $(".fname").each(function() {
         $(this).rules("add", 
@@ -70,6 +72,51 @@ function addValidationRules() {
     });
 }
 
+function ShowTicketSummary() {
+    $("#table-body").empty();
+    var html;
+    
+    for (i = 0; i < noTickets; i++) {
+        var ticketNo = i + 1;
+        var firstName = $("#firstname-" + (i + 1)).val();
+        var lastName = $("#lastname-" + (i + 1)).val();
+        var birthday = $("#birthday-" + (i + 1)).val();
+        var email = $("#email-" + (i + 1)).val();
+        var phone = $("#phone-" + (i + 1)).val();
+        
+        html += "<tr>\n\
+            <td>" + ticketNo + "</td>\n\
+            <td>" + firstName + "</td>\n\
+            <td>" + lastName + "</td>\n\
+            <td>" + birthday + "</td>\n\
+            <td>" + email + "</td>\n\
+            <td>" + phone + "</td>\n\
+            <td>€55.00</td>\n\
+        </tr>";
+    }
+    
+    $("#table-body").html(html);
+}
+
+function ShowCampingSpotOverview() {
+    $("#overview-img, #overview-text").empty();
+    var str = $(".checkbox-marker:checked").next().attr("data-content");
+    
+    if (str !== undefined) {
+        $("#overview-img").html(str.match(/<img.*\/>/));
+        $("#overview-text").html(str.match(/<p>.*/) + "<p><strong>Price: </strong>€" + (noTickets * 20 + 10) + ".00</p>");
+    }
+    else {
+        $("#overview-img").html("<p><em>None</em></p>");
+    }
+}
+
+function ScrollTo(element) {
+    $("html, body").animate({
+        scrollTop: $(element).offset().top
+    }, 500);
+}
+
 $("document").ready(function() {
     $("#addbtn, #removebtn").each(function() {
         $(this).click(addValidationRules);
@@ -120,7 +167,7 @@ $("document").ready(function() {
             $(element).valid(); 
         },
         submitHandler: function() {
-            var data = "form-name=ticket-registration&" + "number-tickets=" + $("#number-tickets").text() + "&" + $("#ticket-registration-form").serialize();
+            var data = "form-name=ticket-registration&" + "number-tickets=" + noTickets + "&" + $("#ticket-registration-form").serialize();
             $.ajax({
                 type: "POST",
                 url: "requests-handler.php",
@@ -140,9 +187,10 @@ $("document").ready(function() {
                     else {
                         alert = "danger";
                         icon = "times";
-                        message = "Something went wrong! Please try again later";
+                        message = response;
                     }
                     $("#wrapper").fadeOut(1000, function() {
+                        ScrollTo("#dunno");
                         $(this).empty();
                         $("#popup").hide().html("<div class='alert alert-" + alert + "' style='text-align: center'><i class='fa fa-" + icon + "' aria-hidden='true'></i> " + message + "</div>").fadeIn(1000);
                     });
@@ -153,22 +201,62 @@ $("document").ready(function() {
     
     addValidationRules();
     
+    $("ul.nav-tabs > li > a").click(function() {
+        if ($("#ticket-registration-form").valid()) {
+            if ($(this).attr("href") === "#step-1") {
+                $("#back-btn").empty();
+                $("#next-btn").html("Next");
+            }
+            else if ($(this).attr("href") === "#step-3") {
+                $("#back-btn").html("<i class='fa fa-chevron-left' aria-hidden='true'></i> <strong>BACK</strong>");
+                $("#next-btn").html("Order Now");
+
+                ShowTicketSummary();
+                ShowCampingSpotOverview();
+            }
+            else {
+                $("#back-btn").html("<i class='fa fa-chevron-left' aria-hidden='true'></i> <strong>BACK</strong>");
+                $("#next-btn").html("Next");
+            }
+        }
+        else {
+            return false;
+        }
+    });
+    
+    $("#edit-btn").click(function() {
+        $("a[href='#step-1']").trigger("click");
+        
+        ScrollTo("#wrapper");
+    });
+    
+    $("#change-btn").click(function() {
+        $("a[href='#step-2']").trigger("click");
+        
+        ScrollTo("#wrapper");
+    });
+    
     $("#next-btn").click(function() {
         if ($("#ticket-registration-form").valid()) {
             $("#back-btn").html("<i class='fa fa-chevron-left' aria-hidden='true'></i> <strong>BACK</strong>");
             
             if ($(".nav-tabs > .active").next("li").find("a").attr("href") === "#step-3") {
                 $("#next-btn").html("Order Now");
+                
+                ShowTicketSummary();
+                ShowCampingSpotOverview();
             }
             
             if ($(".nav-tabs > .active").find("a").attr("href") === "#step-3") {
                 $("#ticket-registration-form").submit();
             } else {
                 $(".nav-tabs > .active").next("li").removeClass("disabled").find("a").attr("data-toggle", "tab").trigger("click");
+                
+                ScrollTo("#wrapper");
             }
-            $('html, body').animate({
-                scrollTop: $("#wrapper").offset().top
-            }, 500);
+        }
+        else {
+            return false;
         }
     });
     
@@ -179,26 +267,9 @@ $("document").ready(function() {
         $("#next-btn").html("Next");
         $(".nav-tabs > .active").prev("li").find("a").trigger("click");
         
-        $('html, body').animate({
-            scrollTop: $("#wrapper").offset().top
-        }, 500);
+        ScrollTo("#wrapper");
     });
     
-    $("li").click(function() {
-        if ($(this).find("a").attr("href") === "#step-1") {
-            $("#back-btn").empty();
-            $("#next-btn").html("Next");
-        }
-        else if ($(this).find("a").attr("href") === "#step-3") {
-            $("#next-btn").html("Order Now");
-        }
-        else {
-            if (!$(this).hasClass("disabled")) {
-                $("#back-btn").html("<i class='fa fa-chevron-left' aria-hidden='true'></i> <strong>BACK</strong>");
-            }
-            $("#next-btn").html("Next");
-        }
-    });
 });
 
 

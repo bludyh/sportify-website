@@ -1,34 +1,18 @@
 <?php 
-    spl_autoload_register(function ($class_name) {
-        $file = dirname($_SERVER["DOCUMENT_ROOT"]) . "/lib/classes/" . $class_name . ".php";
-        if (file_exists($file)) {
-            require_once($file);
-        }
-    });
-    $token = filter_input(INPUT_GET, "token", FILTER_SANITIZE_STRING);
+    require("../lib/authorization.php");
     
-    if ($token != NULL) {
-        $result = Database::ExecuteReader("SELECT * FROM password_recovery WHERE token_key=:token_key", [":token_key" => $token]);
-        if (!empty($result)) {
-            $expireDate = $result[0]["expire_date"];
-            if ($expireDate > time()) {
-                $visitor = new Visitor();
-                $visitor->SelectVisitorBy("visitor_id", $result[0]["visitor_id"]);
-            }
-            else {
-                header("Location: index.php");
-            }
-        }
-        else {
-            header("Location: index.php");
-        }
+    if (IsResetPasswordAccessible()) {
+        $visitorId = Database::ExecuteReader("SELECT visitor_id FROM password_recovery WHERE token_key=:token_key", [":token_key" => filter_input(INPUT_GET, "token", FILTER_SANITIZE_STRING)])[0]["visitor_id"];
+        
+        $visitor = new Visitor();
+        $visitor->SelectVisitorBy("visitor_id", $visitorId);
     }
     else {
         header("Location: index.php");
+        exit();
     }
-
-    
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
