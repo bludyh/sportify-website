@@ -13,6 +13,7 @@ spl_autoload_register(function ($class_name) {
         require_once($file);
     }
 });
+//require_once "../lib/random_compat/lib/random.php"; //Use random_compat library for PHP 5.x
 
 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);

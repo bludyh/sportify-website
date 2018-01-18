@@ -11,6 +11,7 @@ spl_autoload_register(function ($class_name) {
         require_once($file);
     }
 });
+//require_once "../lib/random_compat/lib/random.php"; //Use random_compat library for PHP 5.x
 
 function GeneratePassword() {
     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';

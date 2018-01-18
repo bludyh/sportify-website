@@ -6,18 +6,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+session_start();
     spl_autoload_register(function ($class_name) {
         $file = dirname(filter_input(INPUT_SERVER, "DOCUMENT_ROOT")) . "/lib/classes/" . $class_name . ".php";
         if (file_exists($file)) {
             require_once($file);
         }
     });
+    
+$result = Database::ExecuteReader("SELECT * FROM rental WHERE visitor_id=:visitor_id", [":visitor_id" => 13]);
 
-for ($i = 0; $i < 50; $i++) {
-    Database::ExecuteNonQuery("INSERT INTO ticket (ticket_id) VALUES (:ticket_id)", [":ticket_id" => strtoupper(uniqid() . bin2hex(random_bytes(4)))]);
-}    
+echo "<pre>"; print_r($result); echo "</pre>";
+//
+//$purchases = [];
+//
+//for ($i = 0; $i < count($result); $i++) {
+//    $item = (object) Database::ExecuteReader("SELECT * FROM item WHERE item_id=:item_id", [":item_id" => $result[$i]["item_id"]])[0];
+//    $item->store = (object) Database::ExecuteReader("SELECT * FROM store WHERE store_id=:store_id", [":store_id" => $item->store_id])[0];
+//    
+//    $purchases[$result[$i]["purchase_time"]][] = [
+//        "item" => $item,
+//        "purchase_quantity" => $result[$i]["purchase_quantity"]
+//    ];
+//}
+//
+//foreach ($purchases as $time => $purchaseDetails) {
+//    echo $time;
+//    echo "<pre>"; print_r($purchaseDetails); echo "</pre>";
+//}
 
-//Insert map coordinates into database
+
+////Insert map coordinates into database
 //if (isset($_POST)) {
 //    $l = $_POST["left"];
 //    $t = $_POST["top"];

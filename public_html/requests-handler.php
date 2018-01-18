@@ -27,6 +27,12 @@ if (!empty(filter_input_array(INPUT_POST))) {
     if (filter_input(INPUT_POST, "form-name") == "logout") {
         require("../lib/logout.php");
     }
+    if (filter_input(INPUT_POST, "form-name") == "deposit") {
+        require("../lib/deposit.php");
+    }
+    if (filter_input(INPUT_POST, "form-name") == "change-password") {
+        require("../lib/change-password.php");
+    }
 }
 else {
     header("Location: index.php");

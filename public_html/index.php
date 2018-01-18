@@ -16,7 +16,7 @@
 				<div class="navbar-header">
 					<div class="logo">
                                             <a href="index.php">
-	                	<img src="images/logo.png"alt="">
+	                	<img src="images/logo.png" alt="logo">
 	                </a>
          		</div><!-- logo end -->
 				</div><!-- Navbar header end -->

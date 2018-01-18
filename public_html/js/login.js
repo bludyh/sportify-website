@@ -48,10 +48,12 @@ $("document").ready(function() {
                     if ($.trim(response) === "ok"){
                         setTimeout("window.location.replace('dashboard.php');", 2000);
                     } else {
-                        $("#email").val("");
-                        $("#password").val("");
-                        $("#popup-1").hide().html("<div class='alert alert-danger' style='text-align: center'><i class='fa fa-times' aria-hidden='true'></i> The email address or password you entered is not correct</div>").fadeIn(1000);
-                        $("#login-btn").html("Login");
+                        setTimeout(function() {
+                            $("#email").val("");
+                            $("#password").val("");
+                            $("#popup-1").hide().html("<div class='alert alert-danger' style='text-align: center'><i class='fa fa-times' aria-hidden='true'></i> The email address or password you entered is not correct</div>").fadeIn(1000);
+                            $("#login-btn").html("Login");
+                        }, 2000);
                     }
                 }
             });
@@ -82,9 +84,11 @@ $("document").ready(function() {
                     $("#forgot-password-btn").html("<img src='images/ajax-loader.gif' height='16' width='16'/> &nbsp; Sending ...");
                 },
                 success: function() {
-                    $("#reset-email").val("");
-                    $("#popup-2").hide().html("<div class='alert alert-success' style='text-align: center'><i class='fa fa-check' aria-hidden='true'></i> Password reset link has been sent to your email!</div>").fadeIn(1000);
-                    $("#forgot-password-btn").html("Send");
+                    setTimeout(function() {
+                        $("#reset-email").val("");
+                        $("#popup-2").hide().html("<div class='alert alert-success' style='text-align: center'><i class='fa fa-check' aria-hidden='true'></i> Password reset link has been sent to your email!</div>").fadeIn(1000);
+                        $("#forgot-password-btn").html("Send");
+                    }, 2000);
                 }
             });
         }

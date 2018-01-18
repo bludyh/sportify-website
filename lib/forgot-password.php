@@ -12,6 +12,7 @@ spl_autoload_register(function ($class_name) {
         require_once($file);
     }
 });
+//require_once "../lib/random_compat/lib/random.php"; //Use random_compat library for PHP 5.x
 
 if (filter_input(INPUT_POST, "form-name") == "forgot-password") {
     $email = filter_input(INPUT_POST, "reset-email", FILTER_SANITIZE_EMAIL);
@@ -51,6 +52,9 @@ if (filter_input(INPUT_POST, "form-name") == "reset-password") {
         if ($expireDate > time()) {
             $visitor->UpdateInfo(["password" => $hashedPassword]);
             Database::ExecuteNonQuery("DELETE FROM password_recovery WHERE visitor_id=:visitor_id", [":visitor_id" => $visitor->visitorId]);
+            
+            Database::ExecuteNonQuery("DELETE FROM remember_me WHERE visitor_id=:visitor_id", [":visitor_id" => $visitor->visitorId]);
+
             echo("ok");
         }
         else {
